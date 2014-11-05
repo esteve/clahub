@@ -18,4 +18,8 @@ class GithubStatus
   def sha
     @mash.sha
   end
+
+  def statuses
+    @mash.statuses
+  end
 end
