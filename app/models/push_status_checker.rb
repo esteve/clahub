@@ -34,6 +34,9 @@ class PushStatusChecker
   def mark(commit, state)
     target_url = "#{HOST}/agreements/#{@push.user_name}/#{@push.repo_name}"
 
+    Rails.logger.info('========== COMMIT STATUS')
+    Rails.logger.info(commit.inspect)
+
     GithubRepos.new(repo_agreement.user).set_status(@push.user_name, @push.repo_name, sha = commit.id, {
       state: state,
       target_url: target_url,

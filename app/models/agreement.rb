@@ -19,7 +19,8 @@ class Agreement < ActiveRecord::Base
       'name' => 'web',
       'config' => {
         'url' => "#{HOST}/repo_hook"
-      }
+      },
+      'events' => ['push', 'status']
     }
 
     response = GithubRepos.new(self.user).create_hook(user_name, repo_name, hook_inputs)
