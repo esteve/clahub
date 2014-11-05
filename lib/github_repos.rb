@@ -47,6 +47,9 @@ class GithubRepos
   end
 
   def get_status(user_name, repo_name, sha)
+    Rails.logger.info('GET STATUS, USER NAME: ' + user_name)
+    Rails.logger.info('GET STATUS, REPO NAME: ' + repo_name)
+    Rails.logger.info('GET STATUS, SHA: ' + sha)
     @github.repos.statuses.list(user_name, repo_name, sha)
   end
 end
