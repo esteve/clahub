@@ -11,7 +11,7 @@ class GithubWebhooksController < ApplicationController
     elsif event == 'status'
       Rails.logger.info('================== STATUS')
       payload = GithubStatus.new(params[:payload])
-      Rails.logger.info(payload.status)
+      Rails.logger.info(payload.state)
       Rails.logger.info(payload.user_login)
       Rails.logger.info(payload.repo_name)
     end
