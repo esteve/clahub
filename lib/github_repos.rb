@@ -45,4 +45,8 @@ class GithubRepos
     end
     repos
   end
+
+  def get_status(user_name, repo_name, sha)
+    @github.repos.statuses.list(user_name, repo_name, sha)
+  end
 end
