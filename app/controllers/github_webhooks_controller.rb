@@ -8,6 +8,8 @@ class GithubWebhooksController < ApplicationController
     if event == 'push'
       payload = GithubPush.new(params[:payload])
       PushStatusChecker.new(payload).check_and_update
+    elsif event == 'status'
+      Rails.logger.info('================== STATUS')
     end
 
     render text: "OK", status: 200
