@@ -15,9 +15,7 @@ class GithubWebhooksController < ApplicationController
       Rails.logger.info(payload.user_login)
       Rails.logger.info(payload.repo_name)
       Rails.logger.info('================== STATUSES ==============')
-      payload.statuses.each do |status|
-        Rails.logger.info('=== INDIVIDUAL STATUS: ' + status.inspect)
-      end
+      Rails.logger.info('=== INDIVIDUAL STATUS: ' + payload.statuses.inspect)
     end
 
     render text: "OK", status: 200
